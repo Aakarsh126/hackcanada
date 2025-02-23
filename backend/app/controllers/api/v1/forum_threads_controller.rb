@@ -128,8 +128,8 @@ class Api::V1::ForumThreadsController < ApplicationController
   end
 
   def forum_thread_params
-    params.require(:forum_thread).permit(:title, :content, :mood, :category_id, :tag_list)
-  end
+    params.require(:forum_thread).permit(:title, :content, :mood, :category_id, :tag_list, :donation_link, :volunteer_link)
+  end  
 
   def format_comments(comments)
     comments.map do |comment|

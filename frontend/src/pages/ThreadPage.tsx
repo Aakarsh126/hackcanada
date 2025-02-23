@@ -66,6 +66,8 @@ interface Thread {
     name: string;
     id: number;
   }>;
+  donation_link?: string; // Add donation link
+  volunteering_link?: string; // Add volunteering link
 }
 
 // Styled Components
@@ -536,6 +538,37 @@ const ThreadPage: React.FC = () => {
               <Typography variant="body2" sx={{ ml: 0.5, fontWeight: 500 }}>
                 {thread?.comments_count} comments
               </Typography>
+            </Box>
+
+            <Box display="flex" gap={2} alignItems="center" color="text.secondary">
+              {thread?.donation_link && (
+                <StyledButton
+                  variant="contained"
+                  color="primary"
+                  onClick={() => window.open(thread.donation_link, "_blank")}
+                >
+                  Donate
+                </StyledButton>
+              )}
+              {thread?.volunteering_link && (
+                <StyledButton
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => window.open(thread.volunteering_link, "_blank")}
+                >
+                  Volunteer
+                </StyledButton>
+              )}
+              <StyledButton
+                variant="outlined"
+                onClick={() => {
+                  // Implement share functionality (e.g., copy link to clipboard)
+                  navigator.clipboard.writeText(window.location.href);
+                  alert("Thread link copied to clipboard!");
+                }}
+              >
+                Share
+              </StyledButton>
             </Box>
           </Box>
         </Box>

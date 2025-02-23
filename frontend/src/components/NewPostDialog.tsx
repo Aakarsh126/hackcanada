@@ -46,7 +46,9 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
     title: "",
     content: "",
     category_id: "",
-    mood: "chill",
+    mood: "awareness",
+    donationLink: "",  // New state for Donation Link
+    volunteerLink: "",  // New state for Volunteer Link
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -125,6 +127,8 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
             mood: formData.mood,
             category_id: formData.category_id,
             tag_list: userTags.join(","),
+            donation_link: formData.donationLink,  // Include Donation Link
+            volunteer_link: formData.volunteerLink,  // Include Volunteer Link
           },
         },
         {
@@ -142,6 +146,8 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
         content: "",
         category_id: "",
         mood: "chill",
+        donationLink: "",
+        volunteerLink: "",
       });
       setUserTags([]);
     } catch (error) {
@@ -273,6 +279,28 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
               />
             ))}
           </Box>
+
+          <TextField
+            fullWidth
+            label="Donation Link"
+            variant="outlined"
+            value={formData.donationLink}
+            onChange={(e) =>
+              setFormData({ ...formData, donationLink: e.target.value })
+            }
+            placeholder="Enter the donation link"
+          />
+
+          <TextField
+            fullWidth
+            label="Volunteer Link"
+            variant="outlined"
+            value={formData.volunteerLink}
+            onChange={(e) =>
+              setFormData({ ...formData, volunteerLink: e.target.value })
+            }
+            placeholder="Enter the volunteer link"
+          />
 
           <Box>
             <Typography variant="subtitle1" sx={{ mb: 1 }}>
