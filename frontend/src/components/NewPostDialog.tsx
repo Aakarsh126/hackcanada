@@ -156,10 +156,10 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
 
   // Mood options
   const moods = [
-    { value: "chill", icon: <Spa />, color: "#88c0d0" },
-    { value: "excited", icon: <Favorite />, color: "#bf616a" },
-    { value: "curious", icon: <Psychology />, color: "#ebcb8b" },
-    { value: "supportive", icon: <Lightbulb />, color: "#a3be8c" },
+    { value: "awareness", icon: <Spa />, color: "#88c0d0" },
+    { value: "action", icon: <Favorite />, color: "#bf616a" },
+    { value: "support", icon: <Psychology />, color: "#ebcb8b" },
+    { value: "community", icon: <Lightbulb />, color: "#a3be8c" },
   ];
 
   // Filter categories based on search query
@@ -179,7 +179,7 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
         },
       }}
     >
-      <DialogTitle sx={{ fontWeight: "bold" }}>New Thread</DialogTitle>
+      <DialogTitle sx={{ fontWeight: "bold" }}>Create a New Cause</DialogTitle>
 
       <DialogContent dividers>
         {error && (
@@ -200,7 +200,7 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
         >
           <TextField
             fullWidth
-            label="Conversation Starter"
+            label="Cause Title"
             variant="outlined"
             value={formData.title}
             onChange={(e) =>
@@ -213,7 +213,7 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
             fullWidth
             multiline
             rows={4}
-            label="Share Your Thoughts"
+            label="Cause Description"
             variant="outlined"
             value={formData.content}
             onChange={(e) =>
@@ -223,13 +223,13 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
           />
 
           <FormControl fullWidth>
-            <InputLabel>Choose a Category</InputLabel>
+            <InputLabel>Impact Area</InputLabel>
             <Select
               value={formData.category_id}
               onChange={(e) =>
                 setFormData({ ...formData, category_id: e.target.value })
               }
-              label="Choose a Category"
+              label="Choose an Impact Area"
               required
             >
               {filteredCategories.map((category) => (
@@ -276,7 +276,7 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
 
           <Box>
             <Typography variant="subtitle1" sx={{ mb: 1 }}>
-              Set the Mood
+              Cuase Type
             </Typography>
             <Box sx={{ display: "flex", gap: 2 }}>
               {moods.map(({ value, icon, color }) => (
@@ -322,7 +322,7 @@ const NewPostDialog: React.FC<NewPostDialogProps> = ({ open, onClose }) => {
           {loading ? (
             <CircularProgress size={24} sx={{ color: "white" }} />
           ) : (
-            "Start the Conversation"
+            "Create Cause"
           )}
         </Button>
       </DialogActions>

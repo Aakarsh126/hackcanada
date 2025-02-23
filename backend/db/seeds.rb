@@ -80,7 +80,7 @@ users.each do |follower|
   end
 end
 
-moods = %w[Chill Excited Curious Supportive]
+moods = %w[Awareness Action Support Community]
 
 puts "Seeding Forum Threads..."
 # Create ~30 forum threads

@@ -6,10 +6,10 @@ class ForumThread < ApplicationRecord
   has_many :reactions, dependent: :destroy
 
   enum mood: {
-    chill:      "Chill",
-    excited:    "Excited",
-    curious:    "Curious",
-    supportive: "Supportive"
+    awareness:  "Awareness",
+    action:     "Action",
+    support:    "Support",
+    community:  "Community"
   }
 
 
