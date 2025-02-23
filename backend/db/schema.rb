@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_23_094808) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_23_133655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_23_094808) do
     t.integer "likes_count", default: 0, null: false
     t.integer "chill_votes_count", default: 0, null: false
     t.string "mood", default: "Chill", null: false
+    t.string "donation_link"
+    t.string "volunteer_link"
     t.index ["category_id"], name: "index_forum_threads_on_category_id"
     t.index ["user_id"], name: "index_forum_threads_on_user_id"
   end

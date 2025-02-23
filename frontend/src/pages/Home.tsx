@@ -47,10 +47,10 @@ interface FeedThread {
 
 // Optional color mapping for moods
 const moodColors: Record<string, string> = {
-  chill: "#88c0d0",
-  excited: "#bf616a",
-  curious: "#ebcb8b",
-  supportive: "#a3be8c",
+  awareness: "#88c0d0",
+  action: "#bf616a",
+  support: "#ebcb8b",
+  community: "#a3be8c",
   casual: "#d08770",
 };
 
